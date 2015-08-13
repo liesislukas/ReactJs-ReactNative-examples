@@ -7,7 +7,7 @@ Stack:
   - reactify (JSX -> JS)
   - concat  (concat css files)
 
-# Helpfull npm packages
+# Helpful npm packages
 
 - npm install livereload -g
 - npm install gulp -g
