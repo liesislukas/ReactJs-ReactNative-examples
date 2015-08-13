@@ -16,3 +16,4 @@ Enter your name to input - see your name above input.
 * React state
 * Local storage
 * **Material UI**
+* **Modular pattern**
