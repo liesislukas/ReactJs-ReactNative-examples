@@ -17,3 +17,11 @@ Enter your name to input - see your name above input.
 * Local storage
 * **Material UI**
 * **Modular pattern**
+
+# Medium level
+
+### React router with material UI: 3 pages app.
+
+* **React router**
+* Material UI
+* Modular pattern
