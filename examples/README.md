@@ -25,3 +25,11 @@ Enter your name to input - see your name above input.
 * **React router**
 * Material UI
 * Modular pattern
+
+### [React with material UI for smallest size possible](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/size-and-speed)
+Journey [From 3Mb+ to 171KB](https://github.com/callemall/material-ui/issues/1421). 171KB is minified and gziped react+addons (38.5KB), material-ui (131KB) and Roboto font (1.4KB). Run with [serve --compress](https://www.npmjs.com/package/serve)
+
+
+* Material UI
+* React with addons
+* Minify 
