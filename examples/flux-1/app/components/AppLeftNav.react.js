@@ -46,7 +46,7 @@ class AppLeftNav extends React.Component {
     render() {
         var header = (
             <div style={this.getStyles()} onTouchTap={this._onHeaderClick}>
-                Navigation
+                Homepage
             </div>
         );
 
@@ -80,7 +80,7 @@ class AppLeftNav extends React.Component {
     }
 
     _onHeaderClick() {
-        this.context.router.transitionTo('root');
+        this.context.router.transitionTo('/');
         this.refs.leftNav.close();
     }
 

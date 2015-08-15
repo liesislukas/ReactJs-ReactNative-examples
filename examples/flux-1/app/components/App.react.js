@@ -6,7 +6,7 @@ var React = require('react'),
     Router = require('react-router'),
     RouteHandler = Router.RouteHandler,
     AppLeftNav = require('./AppLeftNav.react');
-
+    
 ThemeManager.setTheme(ThemeManager.types.LIGHT);
 injectTapEventPlugin();
 
