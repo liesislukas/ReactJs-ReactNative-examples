@@ -33,3 +33,9 @@ Journey [From 3Mb+ to 171KB](https://github.com/callemall/material-ui/issues/142
 * Material UI
 * React with addons
 * Minify 
+
+### [React with material UI and Flux data flow](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/flux-1) ###
+
+* Material UI
+* Reatc router
+* **Flux data flow**
