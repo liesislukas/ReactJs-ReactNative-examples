@@ -5,8 +5,12 @@ var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
 
-var _items = {};
-
+var _items = [
+	{
+		id: 1,
+		text: 'Example Item'
+	}
+];	
 
 function create(text){
 	var id = Date.now();
@@ -24,39 +28,29 @@ var ItemsStore = assign({}, EventEmitter.prototype, {
 	getAll: function(){
 		return _items;
 	},
-
 	emitChange: function(){
 		this.emit(CHANGE_EVENT);
 	},
-
-	addChangeListener: function(callback){
-		this.on(CHANGE_EVENT, callback);
+	addChangeListener: function(cb){
+		this.on(CHANGE_EVENT, cb);
 	},
+	removeChangeListener: function(cb){
+		this.removeListener(CHANGE_EVENT, cb);
+	}
 
-	removeChangeListener: function(callback){
-		this.removeChangeListener(CHANGE_EVENT, callback);
-	},
+});
 
-	dispatcherIndex: AppDispatcher.register(function(payload){
-		var action = payload.action;
-		var text;
-
-		switch(action.actionType){
-			case AppConstants.ITEM_CREATE:
-				text = action.text.trim();
-				if(text !== ''){
-					create(text);
-					ItemsStore.emitChange();
-				}
-				break;
-			case AppConstants.ITEM_DESTROY:
-				destroy(action.id);
-				ItemsStore.emitChange();
-				break;
-		}
-
-		return true; // No errors. Needed by Promise in Dispatcher.
-	});
+AppDispatcher.register(function(action){
+	switch(action.actionType){
+		case AppConstants.ITEM_CREATE:
+			create(action.text);
+			ItemsStore.emitChange();
+		break;
+		case AppConstants.ITEM_DESTROY: 
+			destroy(action.id);
+			ItemsStore.emitChange();
+		break;
+	}
 });
 
 module.exports = ItemsStore;
