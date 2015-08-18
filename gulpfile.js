@@ -19,11 +19,13 @@ gulp.task('browserify', function () {
         .on('update', function () {
             var updateStart = Date.now();
             watcher.bundle()
+                .on('error', console.error.bind(console))
                 .pipe(source('main.js'))
                 .pipe(gulp.dest('./public/build/'));
             console.log('Updated in ', (Date.now() - updateStart) + 'ms');
         })
         .bundle()
+        .on('error', console.error.bind(console))
         .pipe(source('main.js'))
         .pipe(gulp.dest('./public/build/'));
 });
