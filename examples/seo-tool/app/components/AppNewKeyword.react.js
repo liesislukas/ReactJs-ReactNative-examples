@@ -2,7 +2,6 @@
 var React = require('react');
 var injectTapEventPlugin = require('react-tap-event-plugin');
 var mui = require('material-ui');
-var ThemeManager = new mui.Styles.ThemeManager();
 
 // mui components
 var Paper = mui.Paper;

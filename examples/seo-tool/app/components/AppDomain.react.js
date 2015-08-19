@@ -2,7 +2,6 @@
 var React = require('react');
 var injectTapEventPlugin = require('react-tap-event-plugin');
 var mui = require('material-ui');
-var ThemeManager = new mui.Styles.ThemeManager();
 
 // mui components
 var Paper = mui.Paper;
@@ -10,6 +9,8 @@ var Table = mui.Table;
 var TextField = mui.TextField;
 var FlatButton = mui.FlatButton;
 
+// app components
+var AppActions = require('../actions/AppActions');
 
 var AppDomain = React.createClass({
 
@@ -20,10 +21,13 @@ var AppDomain = React.createClass({
 			marginRight: 'auto',
 		}
 	},
+	handleChange: function(e){
+		AppActions.set_domain(e.target.getValue());
+	},
 	render: function() {
 		return (
 			<div style={this.getContainerStyles()}>
-				<TextField floatingLabelText="Enter your domain" fullWidth={true} />
+				<TextField floatingLabelText="Enter your domain" fullWidth={true} onChange={this.handleChange} value={this.props.domain} />
 			</div>
 		);
 	}

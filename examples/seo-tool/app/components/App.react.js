@@ -19,6 +19,7 @@ var AppDomain = require('./AppDomain.react');
 var AppNewKeyword = require('./AppNewKeyword.react');
 var AppKeywords = require('./AppKeywords.react');
 var AppResults = require('./AppResults.react');
+var StateStore = require('../stores/StateStore');
 
 var App = React.createClass({
 	childContextTypes: {
@@ -37,14 +38,26 @@ var App = React.createClass({
 			padding: '15px'
 		}
 	},
+	getInitialState: function() {
+		 return StateStore.getState();
+	},
+	_OnChange: function(){
+		this.setState(StateStore.getState());
+	},
+	componentDidMount: function() {
+		StateStore.addChangeListener(this._OnChange);
+	},
+	componentWillUnmount: function() {
+		StateStore.removeChangeListener(this._OnChange);
+	},
 	render: function() {
 		return (
 			<div>
 				<Paper style={this.getPaperStyles()} zDepth={1}>
-					<AppDomain />
+					<AppDomain domain={this.state.get('domain')} />
 					<AppNewKeyword />
-					<AppKeywords />
-					<AppResults />
+					<AppKeywords keywords={this.state.get('keywords')} />
+					<AppResults keywords_results={this.state.get('keywords_results')} keywords={this.state.get('keywords')}/>
 				</Paper>
 			</div>
 		);

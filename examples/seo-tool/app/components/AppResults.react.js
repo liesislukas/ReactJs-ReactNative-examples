@@ -2,23 +2,11 @@
 var React = require('react');
 var injectTapEventPlugin = require('react-tap-event-plugin');
 var mui = require('material-ui');
-var ThemeManager = new mui.Styles.ThemeManager();
-
-ThemeManager.setTheme(ThemeManager.types.LIGHT);
-injectTapEventPlugin();
 
 // mui components
 var Table = mui.Table;
 
 var AppKeywords = React.createClass({
-	childContextTypes: {
-		muiTheme: React.PropTypes.object
-	},
-	getChildContext(){
-		return {
-			muiTheme: ThemeManager.getCurrentTheme()
-		}
-	},
 	render: function() {
 		var headersData = {
 			keyword: {
