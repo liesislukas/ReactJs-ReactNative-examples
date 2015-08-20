@@ -1,5 +1,7 @@
 #NOT WORKING YET#
 
+This is SEO tool. Enter your domain name, some keywords and see your position on Google search.
+
 **Run:**
 
 * npm install
