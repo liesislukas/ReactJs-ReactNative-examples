@@ -31,8 +31,7 @@ var AppDomain = React.createClass({
 					fullWidth={true} 
 					onEnterKeyDown={this.handleOnEnterKeyDown} 
 					defaultValue={this.props.domain} 
-					disabled={this.props.domain_locked}
-					/>
+					disabled={this.props.domain_locked} />
 			</div>
 		);
 	}

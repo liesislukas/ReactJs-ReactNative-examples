@@ -19,7 +19,6 @@ function add_keyword(keyword){
 	if(_keywords.indexOf(keyword) < 0){
 		_keywords.push(keyword);
 		_state = _state.set('keywords',_keywords);
-		return true;	
 	}
 	return false;
 }
