@@ -7,7 +7,7 @@ var IconButton = mui.IconButton;
 
 var AppKeywordsItem = React.createClass({
 	getIcon: function(){
-		return <IconButton iconClassName="material-icons">done</IconButton>; 
+		return <IconButton iconClassName="material-icons">autorenew</IconButton>; 
 	},
 	render: function() {
 		return (

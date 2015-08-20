@@ -21,6 +21,12 @@ var AppKeywords = require('./AppKeywords.react');
 var AppResults = require('./AppResults.react');
 var StateStore = require('../stores/StateStore');
 
+function getAppState(){
+    return {
+    	app_state: StateStore.getState()
+    };
+}
+
 var App = React.createClass({
 	childContextTypes: {
 		muiTheme: React.PropTypes.object
@@ -39,10 +45,10 @@ var App = React.createClass({
 		}
 	},
 	getInitialState: function() {
-		 return StateStore.getState();
+		 return getAppState();
 	},
 	_OnChange: function(){
-		this.setState(StateStore.getState());
+		this.setState(getAppState());
 	},
 	componentDidMount: function() {
 		StateStore.addChangeListener(this._OnChange);
@@ -50,14 +56,22 @@ var App = React.createClass({
 	componentWillUnmount: function() {
 		StateStore.removeChangeListener(this._OnChange);
 	},
+	getAppAfterDomain: function(){
+		if(this.state.app_state.get('domain') !== ''){
+			return(
+				<div>
+					<AppNewKeyword />
+					<AppKeywords keywords={this.state.app_state.get('keywords')} />
+				</div>
+			);
+		}
+	},
 	render: function() {
 		return (
 			<div>
 				<Paper style={this.getPaperStyles()} zDepth={1}>
-					<AppDomain domain={this.state.get('domain')} />
-					<AppNewKeyword />
-					<AppKeywords keywords={this.state.get('keywords')} />
-					<AppResults keywords_results={this.state.get('keywords_results')} keywords={this.state.get('keywords')}/>
+					<AppDomain domain={this.state.app_state.get('domain')} domain_locked={this.state.app_state.get('domain_locked')} />
+					{this.getAppAfterDomain()}
 				</Paper>
 			</div>
 		);

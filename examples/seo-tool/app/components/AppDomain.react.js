@@ -21,13 +21,18 @@ var AppDomain = React.createClass({
 			marginRight: 'auto',
 		}
 	},
-	handleChange: function(e){
-		AppActions.set_domain(e.target.getValue());
+	handleOnEnterKeyDown: function(e){
+		AppActions.set_domain(e.target.value);
 	},
 	render: function() {
 		return (
 			<div style={this.getContainerStyles()}>
-				<TextField floatingLabelText="Enter your domain" fullWidth={true} onChange={this.handleChange} value={this.props.domain} />
+				<TextField floatingLabelText="Enter your domain and click „Enter“" 
+					fullWidth={true} 
+					onEnterKeyDown={this.handleOnEnterKeyDown} 
+					defaultValue={this.props.domain} 
+					disabled={this.props.domain_locked}
+					/>
 			</div>
 		);
 	}

@@ -15,7 +15,7 @@ var AppKeywordsItem = require('./AppKeywordsItem.react');
 var AppKeywords = React.createClass({
 	getListItems: function(){
 		var items = this.props.keywords.map(function(keyword){
-			return <AppKeywordsItem keyword={keyword} />
+			return <AppKeywordsItem keyword={keyword} key={keyword} />
 		});
 		return items;		
 	},
@@ -23,7 +23,7 @@ var AppKeywords = React.createClass({
 		return (
 			<div>
 				<List>
-				{this.getListItems()}
+					{this.getListItems()}
 				</List> 
 			</div>
 		);

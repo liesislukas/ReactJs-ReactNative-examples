@@ -9,6 +9,8 @@ var Table = mui.Table;
 var TextField = mui.TextField;
 var FlatButton = mui.FlatButton;
 
+// app components
+var AppActions = require('../actions/AppActions');
 
 var AppNewKeyword = React.createClass({
 
@@ -19,10 +21,14 @@ var AppNewKeyword = React.createClass({
 			marginRight: 'auto',
 		}
 	},
+	handleSubmit: function(e){
+		AppActions.add_keyword(this.refs.new_keyword_input.getValue());
+		this.refs.new_keyword_input.clearValue();
+	},
 	render: function() {
 		return (
 			<div style={this.getContainerStyles()}>
-				<TextField floatingLabelText="Enter new keyword to start searching and click „Enter“" fullWidth={true} />
+				<TextField ref="new_keyword_input" floatingLabelText="Enter new keyword and click „Enter“ to start position scanner" onKeyDown={this.handleKeyDown} fullWidth={true} onEnterKeyDown={this.handleSubmit} />
 			</div>
 		);
 	}

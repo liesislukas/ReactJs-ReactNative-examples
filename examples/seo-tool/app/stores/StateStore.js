@@ -7,35 +7,33 @@ var Immutable = require('immutable');
 var CHANGE_EVENT = 'change';
 
 var _state = Immutable.Map({
-	domain: 'example.com',
-	keywords: Immutable.OrderedMap({
-		0: 'foo', 
-		1: 'bar' 
-	}),
-	positions: Immutable.Map({
-		0: Immutable.Map(),
-		1: Immutable.Map(),
-	})
-});
-
-var _history = [];
+		domain: '',
+		domain_locked: false,
+		keywords: [],
+		positions: []
+	});
 
 function add_keyword(keyword){
-	_history.push(_state);
 	var id = Date.now();
-	_state = _state.keywords.set(id, keyword);
+	var _keywords = _state.get('keywords');
+	if(_keywords.indexOf(keyword) < 0){
+		_keywords.push(keyword);
+		_state = _state.set('keywords',_keywords);
+		return true;	
+	}
+	return false;
 }
 
 function set_domain(domain){
-	_history.push(_state);
-	_state.set('domain', domain);
+	_state = _state.set('domain', domain);
+	_state = _state.set('domain_locked', true);
 }
 
 /*
 site - Google.com | Google.lt | Google.de or any other Google local site
 */
 function set_keyword_position(keyword, site, position){
-
+	// todo write contents!
 }
 
 var StateStore = assign({}, EventEmitter.prototype, {
@@ -63,8 +61,9 @@ AppDispatcher.register(function(action){
 			StateStore.emitChange();
 			break;
 		case ActionConstants.ADD_KEYWORD:
-			add_keyword(action.keyword);
-			StateStore.emitChange();
+			if(add_keyword(action.keyword)){
+				StateStore.emitChange();				
+			}
 			break;
 	}
 });
