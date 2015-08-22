@@ -18,7 +18,6 @@ var FlatButton = mui.FlatButton;
 var AppDomain = require('./AppDomain.react');
 var AppNewKeyword = require('./AppNewKeyword.react');
 var AppKeywords = require('./AppKeywords.react');
-var AppResults = require('./AppResults.react');
 var StateStore = require('../stores/StateStore');
 
 function getAppState(){
@@ -57,20 +56,22 @@ var App = React.createClass({
 		StateStore.removeChangeListener(this._OnChange);
 	},
 	getAppAfterDomain: function(){
-		if(this.state.app_state.get('domain') !== ''){
+		var state = this.state.app_state;
+		if(state.get('domain') !== ''){
 			return(
 				<div>
 					<AppNewKeyword />
-					<AppKeywords keywords={this.state.app_state.get('keywords')} />
+					<AppKeywords domain={state.get('domain')} keywords={state.get('keywords')} positions={state.get('positions')} />
 				</div>
 			);
 		}
 	},
 	render: function() {
+		var state = this.state.app_state;
 		return (
 			<div>
 				<Paper style={this.getPaperStyles()} zDepth={1}>
-					<AppDomain domain={this.state.app_state.get('domain')} domain_locked={this.state.app_state.get('domain_locked')} />
+					<AppDomain domain={state.get('domain')} domain_locked={state.get('domain_locked')} />
 					{this.getAppAfterDomain()}
 				</Paper>
 			</div>

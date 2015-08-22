@@ -1,13 +1,18 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res){
+app.get('/get_google_position', function(req, res){
+	res.setHeader("Access-Control-Allow-Origin", "*");
+
 	if(!req.query.keyword || !req.query.domain){
 		res.json({
 			error: 'missing params. Add keyword and domain to query'
 		});
 	}
 	
+	var random_result = Math.floor(Math.random() * 10 + 1);
+	res.json({page: random_result});
+
 	function get_google_position(keyword, domain, start){
 		if(!keyword || !domain){
 			return;
@@ -37,7 +42,7 @@ app.get('/', function(req, res){
 		return page;
 	}	
 
-	get_google_position(req.query.keyword, req.query.domain, 0);
+	//get_google_position(req.query.keyword, req.query.domain, 0);
  	
 });
 

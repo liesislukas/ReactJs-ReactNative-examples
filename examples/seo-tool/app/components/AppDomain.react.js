@@ -21,6 +21,11 @@ var AppDomain = React.createClass({
 			marginRight: 'auto',
 		}
 	},
+	componentDidMount: function() {
+		if(this.props.domain == ''){
+			this.refs.input.focus();
+		}
+	},
 	handleOnEnterKeyDown: function(e){
 		AppActions.set_domain(e.target.value);
 	},
@@ -29,6 +34,7 @@ var AppDomain = React.createClass({
 			<div style={this.getContainerStyles()}>
 				<TextField floatingLabelText="Enter your domain and click „Enter“" 
 					fullWidth={true} 
+					ref='input'
 					onEnterKeyDown={this.handleOnEnterKeyDown} 
 					defaultValue={this.props.domain} 
 					disabled={this.props.domain_locked} />

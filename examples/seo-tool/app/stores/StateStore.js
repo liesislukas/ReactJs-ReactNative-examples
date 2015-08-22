@@ -3,6 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var ActionConstants = require('../constants/ActionConstants');
 var assign = require('object-assign');
 var Immutable = require('immutable');
+var AppActions = require('../actions/AppActions');
 
 var CHANGE_EVENT = 'change';
 
@@ -16,23 +17,33 @@ var _state = Immutable.Map({
 function add_keyword(keyword){
 	var id = Date.now();
 	var _keywords = _state.get('keywords');
-	if(_keywords.indexOf(keyword) < 0){
+	keyword = keyword.trim();
+	if(keyword != '' && _keywords.indexOf(keyword) < 0){
 		_keywords.push(keyword);
 		_state = _state.set('keywords',_keywords);
+		AppActions.detect_google_position(keyword, _state.get('domain'));
+		return true;
 	}
 	return false;
 }
 
+function set_keyword_position(keyword, position){
+	var id = Date.now();
+	var _keywords = _state.get('keywords');
+	
+	if(_keywords.indexOf(keyword) > -1){
+		var _positions = _state.get('positions');
+		_positions[keyword] = position;	
+		_state = _state.set('positions', _positions);
+		return true;
+	}
+
+	return false;
+} 
+
 function set_domain(domain){
 	_state = _state.set('domain', domain);
 	_state = _state.set('domain_locked', true);
-}
-
-/*
-site - Google.com | Google.lt | Google.de or any other Google local site
-*/
-function set_keyword_position(keyword, site, position){
-	// todo write contents!
 }
 
 var StateStore = assign({}, EventEmitter.prototype, {
@@ -63,6 +74,10 @@ AppDispatcher.register(function(action){
 			if(add_keyword(action.keyword)){
 				StateStore.emitChange();				
 			}
+			break;
+		case ActionConstants.KEYWORD_PAGE_DETECTED:
+				set_keyword_position(action.keyword, action.page);
+				StateStore.emitChange();				
 			break;
 	}
 });

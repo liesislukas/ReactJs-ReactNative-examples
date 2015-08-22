@@ -21,6 +21,11 @@ var AppNewKeyword = React.createClass({
 			marginRight: 'auto',
 		}
 	},
+	componentDidMount: function(prevProps, prevState) {
+		if(this.refs.new_keyword_input.getValue() == ''){
+			this.refs.new_keyword_input.focus();
+		}
+	},
 	handleSubmit: function(e){
 		AppActions.add_keyword(this.refs.new_keyword_input.getValue());
 		this.refs.new_keyword_input.clearValue();
@@ -28,7 +33,7 @@ var AppNewKeyword = React.createClass({
 	render: function() {
 		return (
 			<div style={this.getContainerStyles()}>
-				<TextField ref="new_keyword_input" floatingLabelText="Enter new keyword and click „Enter“ to start position scanner" onKeyDown={this.handleKeyDown} fullWidth={true} onEnterKeyDown={this.handleSubmit} />
+				<TextField ref="new_keyword_input" floatingLabelText="Enter new keyword and click „Enter“ to start position scanner" fullWidth={true} onEnterKeyDown={this.handleSubmit} />
 			</div>
 		);
 	}

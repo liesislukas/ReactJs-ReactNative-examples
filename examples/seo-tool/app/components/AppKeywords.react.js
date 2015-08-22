@@ -14,8 +14,14 @@ var AppKeywordsItem = require('./AppKeywordsItem.react');
 
 var AppKeywords = React.createClass({
 	getListItems: function(){
+		var positions = this.props.positions;
+		var domain = this.props.domain;
 		var items = this.props.keywords.map(function(keyword){
-			return <AppKeywordsItem keyword={keyword} key={keyword} />
+			var position = undefined;
+			if(positions[keyword]){
+				position = positions[keyword];
+			}
+			return <AppKeywordsItem domain={domain} keyword={keyword} key={keyword} position={position} />
 		});
 		return items;		
 	},
