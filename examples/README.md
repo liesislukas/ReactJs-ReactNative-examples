@@ -39,3 +39,13 @@ Journey [From 3Mb+ to 171KB](https://github.com/callemall/material-ui/issues/142
 * Material UI
 * React router
 * **Flux data flow**
+
+### [Demo SEO tool](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/seo-tool)
+This is demo SEO tool. Enter your domain name, some keywords and see your position on Google search. Returned data is random, though there is function which recursivly searches for submited domain in google results.
+
+* [material-ui](https://www.npmjs.com/package/material-ui)
+* [react-router](https://github.com/rackt/react-router)
+* [Flux architecture](https://facebook.github.io/flux/) 
+* [Immutable Js](https://facebook.github.io/immutable-js/) 
+* [Express Js](http://expressjs.com/)
+* [Livereload](https://www.npmjs.com/package/livereload)
