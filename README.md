@@ -13,3 +13,4 @@ Stack:
 - npm install gulp -g [@npmjs.com](https://www.npmjs.com/package/gulp)
 - npm install http-server -g [@npmjs.com](https://www.npmjs.com/package/http-server)
 - npm install serve -g [@npmjs.com](https://www.npmjs.com/package/serve)
+- npm install material-ui --save [@npmjs.com](https://www.npmjs.com/package/material-ui)
