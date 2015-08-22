@@ -38,11 +38,9 @@ app.get('/get_google_position', function(req, res){
 				}
 		    }
 		});
-
-		return page;
 	}	
 
-	//get_google_position(req.query.keyword, req.query.domain, 0);
+	// get_google_position(req.query.keyword, req.query.domain, 0);
  	
 });
 

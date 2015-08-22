@@ -71,6 +71,9 @@ var App = React.createClass({
 		return (
 			<div>
 				<Paper style={this.getPaperStyles()} zDepth={1}>
+					<h3 style={{textAlign: 'center'}}>
+						This is demo app with express server and server-data fetching from React+Flux. Returned data is random. 
+					</h3>	
 					<AppDomain domain={state.get('domain')} domain_locked={state.get('domain_locked')} />
 					{this.getAppAfterDomain()}
 				</Paper>
