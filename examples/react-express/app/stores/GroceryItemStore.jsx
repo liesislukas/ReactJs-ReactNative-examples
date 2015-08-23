@@ -22,6 +22,9 @@ function GroceryItemStore(){
 	function addGroceryItem(item){
 		items.push(item);
 		triggerListeners();
+
+		RestHelper.post('api/items', item);
+		// to validate add .then() and check the response
 	}
 
 	function deleteGroceryItem(item){
