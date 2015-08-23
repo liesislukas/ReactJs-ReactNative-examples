@@ -8,3 +8,5 @@ app.get('/', function(req, res){
 .listen(7777, function(){
 	console.log('listening on 7777');
 });
+
+require('./routes/items.js')(app);
