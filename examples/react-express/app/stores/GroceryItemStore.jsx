@@ -39,6 +39,18 @@ function GroceryItemStore(){
 		triggerListeners();
 	}
 
+	function buyGroceryItem (item, buy) {
+		var index;
+		items.filter(function(_item, _index){
+			if(_item.name == item.name){
+				index = _index;
+			}
+		});
+
+		items[index].purchased = buy || false;
+		triggerListeners();
+	}
+
 	function onChange(listener){
 		listeners.push(listener);
 	}
@@ -58,6 +70,12 @@ function GroceryItemStore(){
 					break;
 				case 'delete':
 					deleteGroceryItem(event.payload);
+					break;
+				case 'buy':
+					buyGroceryItem(event.payload, true);
+					break;
+				case 'unbuy':
+					buyGroceryItem(event.payload, false);
 					break;
 			}
 		}
