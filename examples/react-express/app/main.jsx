@@ -1,4 +1,17 @@
 var React = require('react/addons');
 var GroceryItemList = require('./components/GroceryItemList.jsx');
 
-React.render(<GroceryItemList />, app);
+var initial = [
+{
+	name: 'Milk'
+},
+{
+	name: 'Eggs',
+	purchased: true
+}, 
+{
+	name: 'Bacon strips'
+}
+];
+
+React.render(<GroceryItemList items={initial} />, app);
