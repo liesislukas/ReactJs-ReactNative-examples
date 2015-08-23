@@ -1,4 +1,5 @@
 var React = require('react');
+var action = require('../actions/GroceryItemActionCreator.jsx');
 
 module.exports = React.createClass({
 	getInitialState: function() {
@@ -13,7 +14,13 @@ module.exports = React.createClass({
 	},
 	addItem: function(e){
 		e.preventDefault();
-		console.log('addItem ',this.state.input);
+		action.add({
+			name: this.state.input
+		});
+
+		this.setState({
+			input: ''
+		});
 	},
 	render: function(){
 		return (
