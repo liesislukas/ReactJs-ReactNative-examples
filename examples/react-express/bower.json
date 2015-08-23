@@ -11,6 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "skeleton": "~2.0.4"
   }
 }
