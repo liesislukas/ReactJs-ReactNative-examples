@@ -17,6 +17,7 @@
     "guid": "0.0.12",
     "gulp": "^3.9.0",
     "gulp-live-server": "0.0.24",
+    "jquery": "^2.1.4",
     "react": "^0.13.3",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
