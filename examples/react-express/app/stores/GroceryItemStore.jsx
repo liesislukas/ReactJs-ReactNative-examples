@@ -1,9 +1,20 @@
-var dispatcher = require('./../dispatcher.jsx');
+var dispatcher = require('./../dispatcher.js');
 
 
 
 function GroceryItemStore(){
-	var items = [];
+	var items = [
+					{
+						name: 'Milk'
+					},
+					{
+						name: 'Eggs',
+						purchased: true
+					}, 
+					{
+						name: 'Bacon strips'
+					}
+				];
 	var listeners = [];
 
 	function getItems(){
@@ -20,8 +31,8 @@ function GroceryItemStore(){
 	}
 
 	function triggerListeners(){
-		changeListeners.forEach(function(listener){
-			listener(GroceryItems);
+		listeners.forEach(function(listener){
+			listener(items);
 		});
 	}
 

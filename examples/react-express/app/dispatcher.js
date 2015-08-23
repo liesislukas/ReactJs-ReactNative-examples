@@ -10,7 +10,7 @@ module.exports = {
 	dispatch: function(payload){
 		console.info('dispatching... ',payload);
 		for(var id in listeners){
-			var listener = listener[id];
+			var listener = listeners[id];
 			listener(payload);
 		}
 	}
