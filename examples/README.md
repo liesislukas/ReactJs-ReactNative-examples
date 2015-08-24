@@ -49,3 +49,18 @@ This is demo SEO tool. Enter your domain name, some keywords and see your positi
 * [Immutable Js](https://facebook.github.io/immutable-js/) 
 * [Express Js](http://expressjs.com/)
 * [Livereload](https://www.npmjs.com/package/livereload)
+
+#Advanced level
+
+###[React + Express + MongoDb](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/react-express)###
+
+Isomorphic app. Grocery list. buy-unbuy-delete-create. 
+Express.js + MongoDb in backend and ReactJs in frontend.
+Babel used to make ES6 working on IE and to make server side rendering from jsx file.
+
+* [Flux architecture](https://facebook.github.io/flux/) 
+* [Express Js](http://expressjs.com/)
+* [MongoDb](https://www.mongodb.org/)
+* [Mongoose](http://mongoosejs.com/)
+* [Babel](https://babeljs.io/)
+* [Bower](http://bower.io/)
