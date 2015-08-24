@@ -1,3 +1,4 @@
+'use strict'
 var dispatcher = require('./../dispatcher.js');
 var RestHelper = require('./../helpers/RestHelper.js');
 
@@ -6,7 +7,7 @@ var RestHelper = require('./../helpers/RestHelper.js');
 function GroceryItemStore(){
 	
 	var listeners = [];
-	var items = [];
+	var items = JSON.parse(localStorage.getItem('items')) || [];
 
 	RestHelper.get('api/items')
 	.then(function (data) {
@@ -22,7 +23,6 @@ function GroceryItemStore(){
 	function addGroceryItem(item){
 		items.push(item);
 		triggerListeners();
-
 		RestHelper.post('api/items', item);
 		// to validate add .then() and check the response
 	}
@@ -38,6 +38,9 @@ function GroceryItemStore(){
 
 		items.splice(index, 1);
 		triggerListeners();
+        
+        RestHelper.del('api/items/'+item._id);
+
 	}
 
 	function buyGroceryItem (item, buy) {
@@ -50,6 +53,9 @@ function GroceryItemStore(){
 
 		items[index].purchased = buy || false;
 		triggerListeners();
+        
+        RestHelper.patch('api/items/'+item._id, item);
+
 	}
 
 	function onChange(listener){
@@ -57,6 +63,7 @@ function GroceryItemStore(){
 	}
 
 	function triggerListeners(){
+        localStorage.setItem('items', JSON.stringify(items));
 		listeners.forEach(function(listener){
 			listener(items);
 		});

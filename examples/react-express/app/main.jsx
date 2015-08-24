@@ -4,8 +4,9 @@ var GroceryItemStore = require('./stores/GroceryItemStore.jsx');
 var initial = GroceryItemStore.getItems();
 
 function render(){
-	React.render(<GroceryItemList items={initial} />, app);
+    React.render(<GroceryItemList items={initial} />, app);
 }
+                                     
 GroceryItemStore.onChange(function(items){
 	initial = items;
 	render();
