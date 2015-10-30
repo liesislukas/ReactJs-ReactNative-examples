@@ -1,0 +1,37 @@
+{
+  "name": "livechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/lukasliesis/livechat.git"
+  },
+  "author": "Lukas Liesis",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lukasliesis/livechat#readme",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.4.0",
+    "body-parser": "^1.14.1",
+    "browserify": "^11.2.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-live-server": "0.0.29",
+    "history": "^1.12.6",
+    "livereload": "^0.3.7",
+    "mongoose": "^4.2.2",
+    "node-jsx": "^0.13.3",
+    "node-jsx-babel": "^0.14.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}
