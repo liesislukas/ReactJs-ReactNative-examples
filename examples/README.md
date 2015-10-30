@@ -64,3 +64,12 @@ Babel used to make ES6 working on IE and to make server side rendering from jsx 
 * [Mongoose](http://mongoosejs.com/)
 * [Babel](https://babeljs.io/)
 * [Bower](http://bower.io/)
+
+###[React + Express + React Router Isomorphic boilerplate](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/react-router-isomorphic)###
+
+* [React router v1.0 rc3](https://github.com/rackt/react-router) [Youtube](https://www.youtube.com/watch?v=XZfvW1a8Xac&index=7&list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+* [React 0.14] (https://facebook.github.io/react/)
+* [Isomorphic app]
+* [Babel](https://babeljs.io/)
+* [Express Js](http://expressjs.com/)
+* [Babel](https://babeljs.io/)
