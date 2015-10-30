@@ -1,18 +1,14 @@
 {
-  "name": "livechat",
+  "name": "example",
   "version": "1.0.0",
   "description": "",
   "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org/lukasliesis/livechat.git"
-  },
   "author": "Lukas Liesis",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/lukasliesis/livechat#readme",
+  "license": "MIT",
+  "homepage": "",
   "dependencies": {
     "babel": "^5.8.23",
     "babelify": "^6.4.0",
