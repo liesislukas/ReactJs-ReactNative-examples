@@ -64,7 +64,7 @@ var TouchableItem = React.createClass({
     }
 });
 
-var ReactNativeSwipe = React.createClass({
+var ReactNativeApp = React.createClass({
     render: function () {
         return (
             <View style={styles.container}>
@@ -84,4 +84,4 @@ var styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('ReactNativeSwipe', () => ReactNativeSwipe);
+AppRegistry.registerComponent('ReactNativeApp', () => ReactNativeApp);
