@@ -1,4 +1,4 @@
-# ReactJs boilerplate and examples
+# ReactJs / React Native examples
 
 All examples are working applications. Go check them out.
 
