@@ -18,6 +18,10 @@ Enter your name to input - see your name above input.
 * **Material UI**
 * **Modular pattern**
 
+### [Button with hover effect](https://github.com/liesislukas/ReactJs-ReactNative-examples/tree/master/examples/hover_button)
+
+React component with hover state
+
 # Medium level
 
 ### [React router with material UI: 3 pages app](https://github.com/liesislukas/ReactJs-boilerplate-and-examples/tree/master/examples/react-router)
